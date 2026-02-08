@@ -1,0 +1,10 @@
+// CMD
+1 - php artisan serve
+2 - php artisan migrate
+3 - php artisan migration
+4 - php artisan make:migration
+5 - php artisan migrate:fresh
+6 - php artisan make:model Job
+7 - php artisan make:model Comment
+8 - php artisan make:model Post -m
+|-> \App\Models\Job::create(['title' => 'Acme Director', 'salary' => '$1,000,000,000']);
