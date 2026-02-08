@@ -7,4 +7,10 @@
 6 - php artisan make:model Job
 7 - php artisan make:model Comment
 8 - php artisan make:model Post -m
-|-> \App\Models\Job::create(['title' => 'Acme Director', 'salary' => '$1,000,000,000']);
+|\-> App\Models\Job::create(['title' => 'Acme Director', 'salary' => '$1,000,000,000']); // [اضافة حقل في جدول]
+|\-> App\Models\User::factory()->create() // [إنشاء مستخدم بسرعة]
+|\-> App\Models\User::factory(100)->create() // [إنشاء 100 مستخدم بسرعة]
+|\-> App\Models\Job::factory()->create() // [اضافة مستخدم بسرعة]
+|\-> App\Models\Job::factory(100)->create() // [اضافة 100 مستخدم بسرعة]
+|\-> App\Models\Job::unverified()->create() // [وسم الوظيفة بأنها غير مؤكدة في قاعدة البيانات]
+10 - php artisan make:factory [named] // [إنشاء فاكتوري جديد]
