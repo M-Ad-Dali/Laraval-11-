@@ -67,7 +67,8 @@ Route::get('/contact', function () {
     Route::get('/jobs', function () {
         return view('jobs',[
     
-            'jobs' => job::all()
+            // 'jobs' => job::all() // [طريقة جلب البيانات من قاعدة البيانات بدون علاقة بين الجداول] [تحميل كسول للبيانات]
+            'jobs' => Job::with('employer')->get() /* [with('employer') = eager loading] */
         ]);
     });
 
