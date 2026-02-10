@@ -68,7 +68,10 @@ Route::get('/contact', function () {
         return view('jobs',[
     
             // 'jobs' => job::all() // [طريقة جلب البيانات من قاعدة البيانات بدون علاقة بين الجداول] [تحميل كسول للبيانات]
-            'jobs' => Job::with('employer')->get() /* [with('employer') = eager loading] */
+            // 'jobs' => Job::with('employer')->paginate(3) // [جلب ثلاثة بس في كل صفحة]
+            // 'jobs' => Job::with('employer')->simplePaginate(3) // [جلب ثلاثة بس في كل صفحة]
+            'jobs' => Job::with('employer')->cursorPaginate(3) // [جلب ثلاثة بس في كل صفحة]
+            // 'jobs' => Job::with('employer')->get() /* [with('employer') = eager loading] */
         ]);
     });
 
