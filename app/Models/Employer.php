@@ -14,4 +14,9 @@ class Employer extends Model
     {
         return $this->hasMany(Job::class); /* [تعريف العلاقة بين صاحب العمل والوظائف  عدة وظائف لصحب عمل واحد] [Many-to-One] */
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
