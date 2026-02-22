@@ -11,11 +11,11 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::with('employer')->latest()->simplePaginate(3); // [جلب ثلاثة بس في كل صفحة]
-
+        
+        $jobs = Job::with('employer')->cursorPaginate(3); // [جلب ثلاثة بس في كل صفحة]
         // $jobs = job::all(); // [طريقة جلب البيانات من قاعدة البيانات بدون علاقة بين الجداول] [تحميل كسول للبيانات]
+        // $jobs = Job::with('employer')->latest()->simplePaginate(3); // [جلب ثلاثة بس في كل صفحة] [latest() = ترتيب البيانات من الأحدث إلى الأقدم] [simplePaginate() = جلب البيانات بدون إظهار عدد الصفحات الكلي في الواجهة]
         // $jobs = Job::with('employer')->paginate(3); // [جلب ثلاثة بس في كل صفحة]
-        // $jobs = Job::with('employer')->cursorPaginate(3); // [جلب ثلاثة بس في كل صفحة]
         // $jobs = Job::with('employer')->get() /* [with('employer'); = eager loading] */
         return view('jobs.index', [
             'jobs' => $jobs,
@@ -63,9 +63,6 @@ class JobController extends Controller
         if (Auth::guest()) {
             return redirect('/login');
         }
-        
-        Gate::authorize('edit-job', $job);
-
         return view('jobs.edit', ['job' => $job]);
     }
 

@@ -32,3 +32,4 @@ php artisan tinker
 15 - php artisan db:seed --class=JobSeeder [JobSeeder تخبر: "لا تشغل كل شيء، فقط قم بتنفيذ التعليمات الموجودة داخل ملف]
 16 - php artisan route:list []
 17 - php artisan route:list --except-vendor []
+18 - php artisan make:policy []
