@@ -9,8 +9,10 @@
           This job pays {{ $job->salary }} per Year.
         </p>
 
+        @can('edit', $job) {{-- [التحقق من صلاحية المستخدم لتعديل الوظيفة اذا كانت توجد صلاحيات تظهر عدا ذالك تختفي] --}}
         <p class="mt-6">
           <x-button href="/jobs/{{ $job->id }}/edit">Edit Job</x-button>
         </p>
+        @endcan
 
 </x-layout>
