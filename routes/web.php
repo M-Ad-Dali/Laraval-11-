@@ -154,10 +154,21 @@ Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
     ->can('edit', 'job'); // [can('edit-job', 'job') = التحقق من صلاحية المستخدم لتعديل الوظيفة اذا كانت توجد صلاحيات تظهر عدا ذالك تختفي]
 
 // Update
+<<<<<<< HEAD
 Route::patch('/jobs/{job}', [JobController::class, 'update']);
 
 // Destroy
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']); 
+=======
+Route::patch('/jobs/{job}', [JobController::class, 'update'])
+    ->middleware('auth')
+    ->can('update', 'job');
+
+// Destroy
+Route::delete('/jobs/{job}', [JobController::class, 'destroy'])
+    ->middleware('auth')
+    ->can('delete', 'job'); 
+>>>>>>> 96940b2cf8c940e941aeae391568e3bc6b7ac343
 // Auth
 Route::get('/register', [RegisterUserController::class, 'create']);
 Route::post('/register', [RegisterUserController::class, 'store']);
