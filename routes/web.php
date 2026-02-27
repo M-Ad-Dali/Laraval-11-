@@ -140,10 +140,10 @@ use App\Models\Job;
 
 
 
-Route::get('test', function () {
+Route::get('test', function () { //[هذي الطريقة لاختبار الوظائف في التطبيق مثل ارسال الايميل او تنفيذ الوظائف المجدولة]
     $job = Job::first();
 
-    TranslateJob::dispatch($job);
+    TranslateJob::dispatch($job); // [dispatch = تنفيذ الوظيفة] [TranslateJob = اسم الوظيفة] [$job = البيانات التي نريد تمريرها للوظيفة]
 
     return 'Done';
 });
